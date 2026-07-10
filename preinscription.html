@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-inscription - IHEM/SO</title>
+    <style>
+        /* Styles de base pour cohérence */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 50px auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left; }
+        h1 { color: #003366; text-align: center; margin-bottom: 30px; }
+        .info-block { background: #e6f7ff; padding: 20px; border-left: 5px solid #ffcc00; margin-bottom: 25px; border-radius: 8px; }
+        .info-block p { margin: 0; color: #333; }
+
+        /* Styles du formulaire */
+        form label { display: block; margin: 15px 0 5px; font-weight: bold; color: #003366; }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="tel"],
+        form input[type="date"],
+        form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; /* Inclure padding et border dans la largeur */
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* Bouton */
+        .submit-btn {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+        }
+        .submit-btn:hover { background: #0055aa; }
+
+        /* Retour à l'accueil */
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #003366; text-decoration: none; font-weight: bold; }
+        .back-link:hover { color: #ffcc00; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formulaire de Pré-inscription à l'IHEM/SO</h1>
+
+        <div class="info-block">
+            <p><strong>Note Importante :</strong> Ce formulaire est une demande de pré-inscription. Un conseiller pédagogique vous recontactera dans les 48 heures pour finaliser votre dossier.</p>
+        </div>
+        
+        <form action="http://localhost/ihemso/traitement_preinscription.php" method="POST">
+            
+            <fieldset>
+                <legend>Vos Informations Personnelles</legend>
+                
+                <label for="nom">Nom Complet :</label>
+                <input type="text" id="nom" name="nom" required>
+                
+                <label for="date_naissance">Date de Naissance :</label>
+                <input type="date" id="date_naissance" name="date_naissance" required>
+                
+                <label for="tel">Téléphone (WhatsApp) :</label>
+                <input type="tel" id="tel" name="tel" placeholder="+225 00 00 00 000" required>
+                
+                <label for="email">Adresse E-mail :</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Votre Parcours Académique</legend>
+
+                <label for="dernier_diplome">Dernier Diplôme Obtenu :</label>
+                <select id="dernier_diplome" name="dernier_diplome" required>
+                    <option value="">-- Sélectionnez --</option>
+                    <option value="bac">Baccalauréat</option>
+                    <option value="licence">Licence (BAC+3)</option>
+                    <option value="master">Master (BAC+5)</option>
+                    <option value="autre">Autre</option>
+                </select>
+
+                <label for="formation_desiree">Formation IHEM/SO Souhaitée :</label>
+                <select id="formation_desiree" name="formation_desiree" required>
+                    <option value="">-- Sélectionnez --</option>
+                    <option value="info">Informatique & Développement</option>
+                    <option value="finance">Gestion & Finance</option>
+                    <option value="marketing">Marketing & Communication</option>
+                </select>
+                
+                <label for="annee_entree">Année d'entrée prévue :</label>
+                <input type="number" id="annee_entree" name="annee_entree" min="2025" max="2028" value="2026" required>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Soumettre ma pré-inscription</button>
+
+        </form>
+
+        <a href="index.html" class="back-link">← Retour à l'accueil du site</a>
+    </div>
+
+</body>
+</html>
